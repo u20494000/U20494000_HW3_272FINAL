@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Videos";
+}
+
+<h2>Video</h2>
+<h3>"Media/Documents/Video" folder</h3>
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var file in Model)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="card" style="width: 18rem;">
+                    <video class="card-img-top gallery" height="300" width="300" src="~/ Content / Media / Videos/@file.FileName" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@file.FileName</h5>
+                            <button class="btn btn-success" onclick="window.location.href' @Url.Action("DownloadFile", "Media", new { FileName = file.FileName, fileOption = file.FileOption })'">DOWNLOAD</button>
+                            <button class="btn btn-danger" onclick="window.location.href' @Url.Action("DeleteFile","Media",new {FileName=file.FileName,fileOption=file.FileOption})'">DELETE</button>
+
+
+                        </div>
+                </div>
+
+
+            </div>
+        }
+    </div>
+
+</div>
+
+
